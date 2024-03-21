@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/animate';
 	import { phones, filtered, term, temp } from '$lib/stores/stores';
 	import type { PageServerData } from './$types';
 	export let data: PageServerData;
@@ -11,7 +12,7 @@
 <div class="grid sm:grid-cols-3 gap-4 m-10">
 	{#if $filtered}
 		{#each $filtered as phone}
-			<div class="card w-auto bg-secondary text-primary-content">
+			<div class="card w-auto bg-secondary text-primary-content" transition:fade>
 				<div class="card-body">
 					<h2 class="card-title">{phone.name}</h2>
 					<p>{phone.section}</p>
@@ -22,9 +23,4 @@
 			</div>
 		{/each}
 	{/if}
-</div>
-<div class="grid justify-items-center">
-	<div>
-		<p>{$filtered.length} adet listeleniyor...</p>
-	</div>
 </div>
