@@ -1,14 +1,13 @@
-import { derived, writable } from "svelte/store";
-
+import { type Writable, derived, writable } from "svelte/store";
 
 export interface Phone {
-    user: string
+    name: string
     section: string
-    interphone: number
+    interphone: string
     search: string
 }
 
-export const term = writable<string>("");
+export const term: Writable<string> = writable<string>("");
 
 export const phones = writable<Phone[]>([]);
 
@@ -17,6 +16,7 @@ export const filtered = writable<Phone[]>([]);
 export const temp = derived([term, phones], ([$term, $phones]): Phone[] =>
     $phones.filter((p) => {
         if ($term === "") return false;
+        else if ($term == "*") return $phones
         else return p.search.includes($term.toLocaleUpperCase('tr-TR'))
     })
 );
