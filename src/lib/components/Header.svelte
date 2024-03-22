@@ -23,7 +23,7 @@
 	});
 </script>
 
-<div class="grid sm:grid-cols-3 justify-center justify-items-center m-4 gap-4">
+<div class="grid sm:grid-cols-3 justify-center sm:items-center justify-items-center m-4 gap-4">
 	<div>
 		{#if logo}
 			<img class="hidden sm:block" src={logo} alt="kroman logo" />
