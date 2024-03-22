@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { phones, filtered, term, temp } from '$lib/stores/stores';
+	import { phones, filtered, term, temp, type Phone } from '$lib/stores/stores';
 	import { onMount } from 'svelte';
 	import type { PageServerData } from './$types';
 	export let data: PageServerData;
@@ -9,10 +9,11 @@
 	$: {
 		filtered.set($temp);
 	}
-	let selectedRow = null;
+	let selectedRow: Phone;
 
 	const showDetails = () => {
 		if (selectedRow) {
+			$term = '';
 			goto(`/phones/${selectedRow.id}`);
 		}
 	};

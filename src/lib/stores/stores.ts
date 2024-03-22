@@ -1,6 +1,7 @@
 import { type Writable, derived, writable } from "svelte/store";
 
 export interface Phone {
+    id: number
     name: string
     section: string
     interphone: string
