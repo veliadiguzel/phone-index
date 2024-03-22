@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { term } from '$lib/stores/stores';
+	import { goto } from '$app/navigation';
 
 	let tema: string = '';
 	let logo: string = '';
@@ -26,8 +27,10 @@
 <div class="grid sm:grid-cols-3 justify-center sm:items-center justify-items-center m-4 gap-4">
 	<div>
 		{#if logo}
-			<img class="hidden sm:block" src={logo} alt="kroman logo yazı ile" />
-			<img class="sm:hidden" src="/images/kroman-{tema}.png" alt="kroman logo" />
+			<a href="/">
+				<img class="hidden sm:block" src={logo} alt="kroman logo yazı ile" />
+				<img class="sm:hidden" src="/images/kroman-{tema}.png" alt="kroman logo" />
+			</a>
 		{/if}
 	</div>
 	<input
