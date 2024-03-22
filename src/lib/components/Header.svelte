@@ -14,20 +14,20 @@
 		window.localStorage.setItem('theme', tema);
 		document.cookie = `theme=${tema}; max-age=${one_year}; path=/;`;
 		document.documentElement.setAttribute('data-theme', tema);
-		logo = `kroman-logo-${tema}.png`;
+		logo = `/images/kroman-logo-${tema}.png`;
 	}
 	onMount(() => {
 		tema = document.documentElement.getAttribute('data-theme');
-		logo = `kroman-logo-${tema}.png`;
+		logo = `/images/kroman-logo-${tema}.png`;
 		console.log(logo);
 	});
 </script>
 
-<div class="grid sm:grid-cols-3 justify-center justify-items-center m-4 gap-4">
+<div class="grid sm:grid-cols-3 justify-center sm:items-center justify-items-center m-4 gap-4">
 	<div>
 		{#if logo}
-			<img class="hidden sm:block" src={logo} alt="kroman logo" />
-			<img class="sm:hidden" src={`kroman-${tema}.png`} alt="Küçük Ekran Resmi" />
+			<img class="hidden sm:block" src={logo} alt="kroman logo yazı ile" />
+			<img class="sm:hidden" src="/images/kroman-{tema}.png" alt="kroman logo" />
 		{/if}
 	</div>
 	<input
