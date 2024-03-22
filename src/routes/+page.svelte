@@ -5,7 +5,7 @@
 	import type { PageServerData } from './$types';
 	export let data: PageServerData;
 
-	$: $phones = data.props.phones;
+	$: $phones = data.phones;
 	$: {
 		filtered.set($temp);
 	}
@@ -65,7 +65,9 @@
 			{/if}
 		</tbody>
 	</table>
-	<div class="join justify-center">
+</div>
+<div class="grid justify-items-center">
+	<div class="join">
 		<button
 			class="btn join-item btn-neutral"
 			on:click={() => goToPage(currentPage - 1)}

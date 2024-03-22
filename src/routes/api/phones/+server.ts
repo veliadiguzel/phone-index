@@ -4,14 +4,11 @@ import db from '$lib/database'
 
 export const GET: RequestHandler = async (event) => {
 
-    const phones = await db.phone.findMany({
-        take: Math.round(Math.random() * 30)
-    })
+    const phones = await db.phone.findMany()
 
     event.setHeaders({
         'Cache-Control': 'max-age-60'
     })
-
-    return json(phones)
+    return new Response(JSON.stringify(phones))
 
 };
